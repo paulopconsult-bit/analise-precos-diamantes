@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Análise de Preços de Diamantes"
 author: "Paulo"
@@ -125,3 +126,132 @@ ggplot(data = mydata[mydata$carat < 2.5, ],
 
 
 
+=======
+---
+title: "Análise de Preços de Diamantes"
+author: "Paulo"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+    code_folding: show
+---
+
+## Introdução
+
+Este relatório realiza uma análise exploratória da base `P2-Mispriced-Diamonds.csv`, utilizando gráficos de dispersão e categorização por `clarity`. O arquivo pode ser baixado diretamente do Google Drive ou acessado via unidade mapeada no Windows.
+
+## Fonte dos Dados
+- Origem: ...
+- Status: Público / Fictício
+- Este relatório utiliza a base `P2-Mispriced-Diamonds.csv`.  
+- Para reproduzir a análise, baixe o arquivo aqui:
+
+🔗 [Download do CSV](https://drive.google.com/file/d/1chAw_lIO47i78vPLyBsRFDPTW-ZECSHC/view?usp=sharing)
+
+## Configuração do ambiente
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 6
+)
+
+# Diretório de trabalho (ajuste conforme seu Drive mapeado)
+setwd("G:/Meu Drive/R/Analise-Preco-Diamantes/Pasta-Arquivo-Projeto")
+```
+
+## Instalação e carregamento de pacotes
+
+```{r}
+# Instalar e carregar pacotes necessários
+pkgs <- c("ggplot2", "data.table", "googledrive")
+to_install <- pkgs[!pkgs %in% installed.packages()[, "Package"]]
+if (length(to_install)) install.packages(to_install)
+invisible(lapply(pkgs, library, character.only = TRUE))
+```
+
+## Autenticação no Google Drive (automática)
+
+```{r}
+library(googledrive)
+
+# Verifica se já existe um token ativo
+if (is.null(drive_token())) {
+  message("Nenhum token encontrado. Autenticando no Google Drive...")
+  drive_auth(scopes = "https://www.googleapis.com/auth/drive")
+} else {
+  message("Já autenticado no Google Drive. Seguindo normalmente...")
+}
+```
+
+## Leitura e inspeção dos dados
+
+```{r}
+library(data.table)
+
+# Caminho direto para o arquivo no Google Drive mapeado
+# Você lê direto da pasta do google drive, via o teu explorador de arquivos (no meu caso: windows)
+# Baixar arquivo devido extensão ".csv" (Se google sheet, já conecta "direto" no link).
+mydata <- "G:/Meu Drive/R/Analise-Preco-Diamantes/Pasta-Arquivo-Projeto/P2-Mispriced-Diamonds.csv"
+```
+
+## Leitura e inspeção dos dados
+
+```{r}
+# Carregar os dados
+mydata <- fread("P2-Mispriced-Diamonds.csv")
+
+# Inspeção
+mydata
+str(mydata)
+dim(mydata)
+summary(mydata)
+table(mydata$clarity)
+
+# Remover o arquivo se quiser limpar o diretório
+# file.remove("P2-Mispriced-Diamonds.csv")
+```
+
+## Gráfico de dispersão: carat vs price
+
+```{r}
+ggplot(data = mydata, aes(x = carat, y = price)) +
+  geom_point() +
+  labs(title = "Dispersão: Carat vs Preço", x = "Carat", y = "Preço")
+```
+
+## Dispersão com variável categórica: clarity
+
+```{r}
+ggplot(data = mydata, aes(x = carat, y = price, colour = clarity)) +
+  geom_point() +
+  labs(title = "Dispersão por Clarity", x = "Carat", y = "Preço", colour = "Clarity")
+```
+
+## Dispersão filtrada com suavização
+
+```{r}
+ggplot(data = mydata[mydata$carat < 2.5, ],
+       aes(x = carat, y = price, colour = clarity)) +
+  geom_point(alpha = 0.1) +
+  geom_smooth() +
+  labs(title = "Dispersão filtrada (carat < 2.5)", x = "Carat", y = "Preço")
+```
+
+## Conclusões
+
+- A relação entre `carat` e `price` é positiva e clara nos gráficos.
+- A variável `clarity` adiciona uma dimensão categórica importante.
+- A filtragem por `carat < 2.5` ajuda a reduzir o impacto de outliers.
+- A suavização com `geom_smooth()` revela tendências gerais entre peso e preço.
+- Mapear o Google Drive como uma unidade no Explorador de Arquivos do Windows torna o acesso aos dados extremamente prático: o R pode ler arquivos diretamente como se estivessem em qualquer pasta local, sem necessidade de autenticação ou download via API.
+
+
+
+>>>>>>> 5e53869052f679d787ba388d9c51645f4c026b98
