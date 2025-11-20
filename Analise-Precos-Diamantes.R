@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 #-- Revisão: Analise-Precos-Diamantes
 
 #Baixe o arquivo: P2-Mispriced-Diamonds.csv
