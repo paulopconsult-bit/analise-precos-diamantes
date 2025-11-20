@@ -124,9 +124,9 @@ ggplot(data = mydata[mydata$carat < 2.5, ],
 
 ## 📊 Relatório publicado
 
-A versão mais recente deste relatório está disponível em:  
-<a href="https://paulopconsult-bit.github.io/analise-precos-diamantes/Analise-Preco-Diamantes.html" target="_blank">
-Relatório HTML no GitHub Pages.
+OS documentos deste relatório está disponível em:  
+<a href="https://github.com/paulopconsult-bit/analise-precos-diamantes" target="_blank">
+Relatório no GitHub Pages.
 </a>
 
 ## Conclusões
