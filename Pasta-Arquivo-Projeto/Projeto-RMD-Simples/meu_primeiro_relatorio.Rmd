@@ -1,0 +1,17 @@
+---
+title: "Meu Primeiro Relatório em R Markdown"
+author: "Paulo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Introdução
+
+Este é um exemplo simples de relatório em R Markdown.  
+Aqui você verá como misturar **texto explicativo** com **código R** e **gráficos**.
+
+## Cálculo simples
+
+```{r}
+# Um cálculo básico
+2 + 2
