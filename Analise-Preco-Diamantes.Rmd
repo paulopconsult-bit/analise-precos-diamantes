@@ -30,13 +30,19 @@ setwd("G:/Meu Drive/R/Analise-Preco-Diamantes/Pasta-Arquivo-Projeto")
 ```
 
 ## Fonte dos Dados
-- Origem: ...
+- Origem: Os dados utilizados neste projeto foram obtidos do conjunto Diamonds disponível no Kaggle:
+<a href="https://www.kaggle.com/datasets/shivam2503/diamonds" target="_blank">
+Conjunto de dados Diamonds no Kaggle.
+</a>
+
 - Status: Público / Fictício
 - Este relatório utiliza a base `P2-Mispriced-Diamonds.csv`.  
 - Para reproduzir a análise, baixe o arquivo aqui:
 
-🔗 [Download do CSV](https://drive.google.com/file/d/1chAw_lIO47i78vPLyBsRFDPTW-ZECSHC/view?usp=sharing)
-
+🔗 [Download do CSV]
+<a href="https://drive.google.com/file/d/1chAw_lIO47i78vPLyBsRFDPTW-ZECSHC/view?usp=sharing" target="_blank">
+Baixar a base de dados.
+</a>
 
 ## Instalação e carregamento de pacotes
 
@@ -116,6 +122,13 @@ ggplot(data = mydata[mydata$carat < 2.5, ],
   labs(title = "Dispersão filtrada (carat < 2.5)", x = "Carat", y = "Preço")
 ```
 
+## 📊 Relatório publicado
+
+A versão mais recente deste relatório está disponível em:  
+<a href="https://paulopconsult-bit.github.io/analise-precos-diamantes/Analise-Preco-Diamantes.html" target="_blank">
+Relatório HTML no GitHub Pages.
+</a>
+
 ## Conclusões
 
 - A relação entre `carat` e `price` é positiva e clara nos gráficos.
@@ -123,3 +136,11 @@ ggplot(data = mydata[mydata$carat < 2.5, ],
 - A filtragem por `carat < 2.5` ajuda a reduzir o impacto de outliers.
 - A suavização com `geom_smooth()` revela tendências gerais entre peso e preço.
 - Mapear o Google Drive como uma unidade no Explorador de Arquivos do Windows torna o acesso aos dados extremamente prático: o R pode ler arquivos diretamente como se estivessem em qualquer pasta local, sem necessidade de autenticação ou download via API.
+
+
+<hr>
+<p><strong>Paulo P. Consult</strong><br>
+📊 Analista de Seguros | Projetos | Data Driven <br>
+🌐 <a href="https://www.linkedin.com/in/paulo-data-driven/" target="_blank">Linkedin</a><br>
+📧 paulo.pconsult@gmail.com
+</p>
